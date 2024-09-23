@@ -1,0 +1,372 @@
+{
+  "project_info": {
+    "project_number": "532001901293",
+    "firebase_url": "https://trackom.firebaseio.com",
+    "project_id": "trackom",
+    "storage_bucket": "trackom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:0e3cf68823589de4",
+        "android_client_info": {
+          "package_name": "com.aratiapp.aratiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:e3002e17212cee54dd5ae4",
+        "android_client_info": {
+          "package_name": "com.deepswargps.deepswargps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:822e12cd6a9c4209dd5ae4",
+        "android_client_info": {
+          "package_name": "com.rilapppro.rilapppro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:a85bc767a2365805dd5ae4",
+        "android_client_info": {
+          "package_name": "com.securityweb.securityweb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:e30e09de11461c3edd5ae4",
+        "android_client_info": {
+          "package_name": "com.trackme.trackme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:de4af4c4eba0146c",
+        "android_client_info": {
+          "package_name": "com.trackom.trackom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-5220522374069093~8041059165"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:196ec1ba10662dc4dd5ae4",
+        "android_client_info": {
+          "package_name": "com.trackom.trackompro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:36e928d0a5c44825dd5ae4",
+        "android_client_info": {
+          "package_name": "com.trackzone.trackzone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:9460909eea00d723dd5ae4",
+        "android_client_info": {
+          "package_name": "com.visibleinfotech.visibleinfotech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532001901293:android:07b0567e9bb1dec5dd5ae4",
+        "android_client_info": {
+          "package_name": "com.vmgpstrackers.vmgpstrackers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFjfd_lBzkNRcpzWbUENRlEqkz5fJUZQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532001901293-hban2v790foen65h2rvomlmtffcqdsve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "532001901293-gf25ofj2mvticndi5opuriiimkk2kj4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trackomgps.trackomgps"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
