@@ -336,7 +336,7 @@ class MapPinPillComponentState extends State<MapPinPillComponent> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   CustomText(
-                                    TxtName: ('drivenToday').tr,
+                                    TxtName: ('Away From You').tr,
                                     Txtsize: 11,
                                   ),
                                   Text(
