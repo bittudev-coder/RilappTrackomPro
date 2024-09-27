@@ -155,6 +155,7 @@ class Assets {
   static const String modelMaintenanceModel = 'lib/src/model/MaintenanceModel.dart';
   static const String modelMaintenancePermModel = 'lib/src/model/MaintenancePermModel.dart';
   static const String modelMaintenancePostModel = 'lib/src/model/MaintenancePostModel.dart';
+  static const String modelMobileAppURL = 'lib/src/model/MobileAppURL.dart';
   static const String modelNotificationModel = 'lib/src/model/NotificationModel.dart';
   static const String modelNotificationType = 'lib/src/model/NotificationType.dart';
   static const String modelPermissionModel = 'lib/src/model/PermissionModel.dart';

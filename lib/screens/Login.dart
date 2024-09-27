@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:http/http.dart' as http;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +13,10 @@ import 'package:gpspro/widgets/CustomButton.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../traccar_gennissi.dart';
+import '../src/model/MobileAppURL.dart';
+import '../theme/ConstColor.dart';
+import '../widgets/CustomText.dart';
+import 'WebViewScreen.dart';
 class LoginPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new _LoginPageState();
@@ -22,12 +26,12 @@ enum FormType { login, register }
 
 class _LoginPageState extends State<LoginPage> {
   late SharedPreferences prefs;
-
+  List<MobileAppUrl> serverList=[];
   final TextEditingController _emailFilter = new TextEditingController();
   final TextEditingController _passwordFilter = new TextEditingController();
   // final TextEditingController _serverFilter = new TextEditingController();
   String _serverFilter = "";
-
+  int? selectedIndex=0;
   String? dropdownValue;
   String _email = "";
   String _password = "";
@@ -48,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
+    fetchAndAddServers();
     //_serverFilter.addListener(_urlListen);
     _emailFilter.addListener(_emailListen);
     _passwordFilter.addListener(_passwordListen);
@@ -59,6 +64,28 @@ class _LoginPageState extends State<LoginPage> {
     initFirebase();
     super.initState();
   }
+
+  Future<void> fetchAndAddServers() async {
+    try {
+      final http.Response response = await http.get(
+        Uri.parse('https://ip1.rilapp.com/vts/mobileAppURL.json'),
+      );
+      // print(response.body);
+      if (response.statusCode == 200) {
+        final List<dynamic> jsonData = json.decode(response.body);
+        setState(() {
+          serverList = jsonData.map((data) => MobileAppUrl.fromJson(data)).toList();
+        });
+      } else {
+        print("Failed to load data: ${response.statusCode}");
+      }
+    } catch (e) {
+      print("An error occurred: $e");
+    }
+    print(serverList[0].serverName);
+  }
+
+
 
   Future<void> initFirebase() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -205,59 +232,130 @@ class _LoginPageState extends State<LoginPage> {
 
   void showServerDialog(BuildContext context) {
     Dialog simpleDialog = Dialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(3.0),
-        ),
-        child: StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-              return Container(
-                  height: 130,
-                  width: 300.0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: ListView(children: [
-                      Text(
-                        "Select Server",
-                        style: TextStyle(fontSize: 20, color: Colors.indigo,fontFamily: 'OpenSans-Bold.ttf',),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      InputDecorator(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
-                          contentPadding: const EdgeInsets.all(10),
-                        ),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                              isDense: true,
-                              value: _serverFilter,
-                              isExpanded: true,
-                              items: [
-                                ...dropDownListData
-                                    .map<DropdownMenuItem<String>>((data) {
-                                  return DropdownMenuItem(
-                                      child: Text(data['title']),
-                                      value: data['value']);
-                                }).toList(),
-                              ],
-                              onChanged: (value) {
-                                setState(() {
-                                  _serverFilter = value!;
-                                });
-                                print(_serverFilter);
-                                prefs.setString("url", _serverFilter);
-                                Navigator.pop(context);
-                              }),
-                        ),
-                      ),
-                    ]),
-                  ));
-            }));
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(3.0),
+      ),
+      child: StatefulBuilder(
+        builder: (BuildContext context, StateSetter setState) {
+          return Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color
+              borderRadius: BorderRadius.circular(12.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.blue.withOpacity(0.5), // Blue shadow
+                  spreadRadius: 2,
+                  blurRadius: 8,
+                  offset: Offset(0, 4), // Shadow offset (horizontal, vertical)
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column( // Use Column instead of ListView
+                mainAxisSize: MainAxisSize.min, // To prevent infinite height
+                children: [
+                  Text(
+                    "Select Server",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.indigo,
+                      fontFamily: 'OpenSans-Bold.ttf',
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Divider(thickness: 2,),
+                  const SizedBox(height: 10),
+                  serverList.isEmpty
+                      ? Center(child: CircularProgressIndicator()) // Show loading indicator
+                      : SizedBox(
+                    height: 300, // Set a fixed height for the ListView
+                    child: ListView.builder(
+                      itemCount: serverList.length,
+                      itemBuilder: (context, index) {
+                        final URL = serverList[index];
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              prefs.setString("url", URL.serverUrl);
+
+                              prefs.setInt("URLINDEX", index);
+                              selectedIndex = prefs.getInt("URLINDEX");
+                              Navigator.pop(context);
+                            });
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WebViewScreen(title: URL.serverName, url: _serverFilter ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                          // Padding inside each item
+                            decoration: BoxDecoration(
+                              color: Colors.white, // Background color
+                              border: Border.all(
+                                color: selectedIndex == index ? Colors.blue : Colors.transparent, // Conditional border color
+                                width: 2, // Border width
+                              ),
+                              borderRadius: BorderRadius.circular(8.0), // Rounded corners
+
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: urlCard(URL, context, index),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+
     showDialog(
-        context: context, builder: (BuildContext context) => simpleDialog);
+      context: context,
+      builder: (BuildContext context) => simpleDialog,
+    );
   }
+
+  Widget urlCard(MobileAppUrl url, BuildContext context, int index) {
+    return Container(
+      decoration:   BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12), // Slightly larger radius for a smoother look
+        boxShadow: [
+          BoxShadow(
+            color: Colors.blue.withOpacity(0.2), // Darker shadow for a more noticeable effect
+            spreadRadius: 2, // Increased spread radius for a more pronounced shadow
+            blurRadius: 12, // Increased blur radius for a softer, more extended shadow
+            offset: Offset(0, 6), // Adjusted offset for a more noticeable shadow
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomText(TxtName:url.serverName,),
+                url.serverType=='app'?
+                Icon(Icons.mobile_friendly):Icon(Icons.web),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
 
   Widget _buildTextFields() {
     return new Container(
