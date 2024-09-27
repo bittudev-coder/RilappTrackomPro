@@ -290,6 +290,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             );
                           },
+
                           child: Container(
                           // Padding inside each item
                             decoration: BoxDecoration(
