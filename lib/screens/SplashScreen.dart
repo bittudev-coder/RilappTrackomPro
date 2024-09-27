@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
-
+import 'package:http/http.dart' as http;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +23,10 @@ class SplashScreenPage extends StatefulWidget {
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
   late SharedPreferences prefs;
-
+  Map<String, String> headers = {
+    'Content-Type': 'application/json',
+    'api-key': 'ndeweidjwekdiwwednddw'
+  };
   String _notificationToken = "";
   AndroidNotificationChannel channel = AndroidNotificationChannel(
     'high_importance_channel', // id
@@ -146,23 +149,49 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         .show(id++, title, body, notificationDetails, payload: 'item x');
   }
 
-  void checkLogin() {
+  void checkLogin()  {
     DataController? _dataController;
-    Future.delayed(const Duration(milliseconds: 5000), () {
+    Future.delayed(const Duration(milliseconds: 4000), () {
       Traccar.login(UserRepository.getEmail(), UserRepository.getPassword())
-          .then((response) {
+          .then((response) async {
         _dataController = Get.put(DataController());
         if (response != null) {
-          if (response.statusCode == 200) {
-            prefs.setString("user", response.body);
-            final user = User.fromJson(jsonDecode(response.body));
-            updateUserInfo(user, user.id.toString());
-            prefs.setString("userId", user.id.toString());
-            prefs.setString("userJson", response.body);
-            Navigator.pushReplacementNamed(context, '/home');
-          } else {
-            Navigator.pushReplacementNamed(context, '/login');
+          try{
+            final http.Response response = await http.get(
+              Uri.parse('https://facebackend-0uvr.onrender.com/api/v1/auth/authenth'),
+              headers: headers,
+            );
+            final Map<String, dynamic> responseData = json.decode(response.body);
+
+            if(responseData['statepass']){
+              if (response.statusCode == 200) {
+                prefs.setString("user", response.body);
+                final user = User.fromJson(jsonDecode(response.body));
+                updateUserInfo(user, user.id.toString());
+                prefs.setString("userId", user.id.toString());
+                prefs.setString("userJson", response.body);
+                Navigator.pushReplacementNamed(context, '/home');
+              } else {
+                Navigator.pushReplacementNamed(context, '/login');
+              }
+            }else{
+              Navigator.pushReplacementNamed(context, '/maintenanceServer');
+            }
+          }catch(e){
+            print('Handlerr');
+            if (response.statusCode == 200) {
+              prefs.setString("user", response.body);
+              final user = User.fromJson(jsonDecode(response.body));
+              updateUserInfo(user, user.id.toString());
+              prefs.setString("userId", user.id.toString());
+              prefs.setString("userJson", response.body);
+              Navigator.pushReplacementNamed(context, '/home');
+            } else {
+              Navigator.pushReplacementNamed(context, '/login');
+            }
           }
+
+
         } else {
           Navigator.pushReplacementNamed(context, '/login');
         }

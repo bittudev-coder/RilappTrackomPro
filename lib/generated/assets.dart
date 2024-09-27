@@ -191,6 +191,7 @@ class Assets {
   static const String screensLineChart = 'lib/screens/LineChart.dart';
   static const String screensLogin = 'lib/screens/Login.dart';
   static const String screensMaintenance = 'lib/screens/Maintenance.dart';
+  static const String screensMaintenancePage = 'lib/screens/MaintenancePage.dart';
   static const String screensMapHome = 'lib/screens/MapHome.dart';
   static const String screensNotificationMap = 'lib/screens/NotificationMap.dart';
   static const String screensPlayback = 'lib/screens/Playback.dart';

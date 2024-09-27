@@ -11,6 +11,7 @@ import 'package:gpspro/screens/Graph.dart';
 import 'package:gpspro/screens/Home.dart';
 import 'package:gpspro/screens/Login.dart';
 import 'package:gpspro/screens/Maintenance.dart';
+import 'package:gpspro/screens/MaintenancePage.dart';
 import 'package:gpspro/screens/NotificationMap.dart';
 import 'package:gpspro/screens/Playback.dart';
 import 'package:gpspro/screens/ReportEvent.dart';
@@ -45,4 +46,5 @@ final Map<String, WidgetBuilder> routes = {
   '/maintenance': (context) => MaintenancePage(),
   '/graph': (context) => Graph(),
   '/deviceEdit': (context) => DeviceEdit(),
+  '/maintenanceServer':(context) => MaintenanceServer()
 };
