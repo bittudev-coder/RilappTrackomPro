@@ -7,6 +7,7 @@ import 'package:gpspro/arguments/ReportEventArguments.dart';
 import 'package:gpspro/screens/CommonMethod.dart';
 import 'package:gpspro/storage/dataController/DataController.dart';
 import 'package:gpspro/theme/CustomColor.dart';
+import 'package:gpspro/widgets/CustomButton.dart';
 import '../../traccar_gennissi.dart';
 import '../Config.dart';
 import '../theme/ConstColor.dart';
@@ -734,24 +735,10 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
             ),
           ),
             floatingActionButton: Padding(
-              padding: const EdgeInsets.only(left: 15), // Adjust top padding here
+              padding: const EdgeInsets.only(left: 180), // Adjust top padding here
               child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    FloatingActionButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      materialTapTargetSize: MaterialTapTargetSize.padded,
-                      backgroundColor: Colors.transparent, // Transparent background
-                      foregroundColor: CustomColor.primaryColor, // Icon color
-                      child: const Icon(Icons.close, size: 40.0),
-                      mini: true,
-                    ),
-                  ],
-                ),
+                alignment: Alignment.bottomLeft,
+                child: CustomButton(text:"Close",onTap:Navigator.of(context).pop)
               ),
             ),
           );
@@ -818,14 +805,13 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                           SizedBox(width: 5,),
                           // Information column
                           Expanded(
-
                             child:Row(
                               children: [
-                                Icon(Icons.timer_rounded, size: 18.0),
+                       Text("Last Update:" ,style: TextStyle(fontSize: 12),),
                                 SizedBox(width: 5),
                                 Text(
                                   fLastUpdate,
-                                  style: TextStyle(fontSize: subtext),
+                                  style: TextStyle(fontSize: 12),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ],
