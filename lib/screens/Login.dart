@@ -278,17 +278,19 @@ class _LoginPageState extends State<LoginPage> {
                           onTap: () {
                             setState(() {
                               prefs.setString("url", URL.serverUrl);
-
+                              prefs.setString("urltype", URL.serverType);
                               prefs.setInt("URLINDEX", index);
                               selectedIndex = prefs.getInt("URLINDEX");
                               Navigator.pop(context);
                             });
+                            if(URL.serverType== "web"){
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => WebViewScreen(title: URL.serverName, url: _serverFilter ),
+                                builder: (context) => WebViewScreen(title: URL.serverName, url: URL.serverUrl ),
                               ),
                             );
+                            }
                           },
 
                           child: Container(
@@ -300,7 +302,6 @@ class _LoginPageState extends State<LoginPage> {
                                 width: 2, // Border width
                               ),
                               borderRadius: BorderRadius.circular(8.0), // Rounded corners
-
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(6.0),
@@ -340,13 +341,13 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(10.0),
         child: Column(
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomText(TxtName:url.serverName,),
+                CustomText(TxtName:url.serverName,Txtsize: 20,),
                 url.serverType=='app'?
                 Icon(Icons.mobile_friendly):Icon(Icons.web),
               ],

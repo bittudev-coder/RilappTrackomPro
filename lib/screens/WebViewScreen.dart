@@ -4,10 +4,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:gpspro/arguments/AboutPageArguments.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
+
+import '../storage/user_repository.dart';
+import '../traccar_gennissi.dart';
+import '../widgets/CustomButton.dart';
 
 const String kNavigationExamplePage = '''
 <!DOCTYPE html><html>
@@ -125,24 +130,50 @@ Page resource error:
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 40),
+            child: WebViewWidget(controller: _controller),
+          ),
+          Positioned(
+            top: 40, // Adjust the top position as needed
+            right: 8, // Adjust the left position as needed
+            child: favoriteButton(),
+          ),
+        ],
       ),
-      body: WebViewWidget(controller: _controller),
-      floatingActionButton: favoriteButton(),
     );
   }
 
+
   Widget favoriteButton() {
-    return FloatingActionButton(
-      onPressed: () async {
-        final String? url = await _controller.currentUrl();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Favorited $url')),
-        );
-      },
-      child: const Icon(Icons.favorite),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 40,
+        width: 100,// Increased height for better visual balance
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15), // Rounded corners
+          boxShadow: [
+            BoxShadow(
+              color: Colors.blue.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 8,
+              offset: Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Center(
+          child: CustomButton(onTap: logout, text: "Logout"),
+        ),
+      ),
     );
+  }
+  logout(){
+    Navigator.pushReplacementNamed(context, '/login');
+      UserRepository.doLogout();
+      Phoenix.rebirth(context);
   }
 }

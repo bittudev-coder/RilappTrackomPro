@@ -15,6 +15,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../traccar_gennissi.dart';
+import 'WebViewScreen.dart';
 
 class SplashScreenPage extends StatefulWidget {
   @override
@@ -56,16 +57,27 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       Permission.notification,
     ].request();
     prefs.setBool("ads", true);
-    if (prefs.get('email') != null) {
-      if (prefs.get("popup_notify") == null) {
+
+    if("web"== prefs.getString("urltype")){
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => WebViewScreen(title: "Rilapp", url:prefs.getString('url')!),
+        ),
+      );
+    }else{
+      if (prefs.get('email') != null) {
+        if (prefs.get("popup_notify") == null) {
+          prefs.setBool("popup_notify", true);
+        }
+        initFirebase();
+        checkLogin();
+      } else {
         prefs.setBool("popup_notify", true);
+        Navigator.pushReplacementNamed(context, '/login');
       }
-      initFirebase();
-      checkLogin();
-    } else {
-      prefs.setBool("popup_notify", true);
-      Navigator.pushReplacementNamed(context, '/login');
     }
+
   }
   //
   // Future<void> _checkLocationPermission() async {
