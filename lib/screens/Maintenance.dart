@@ -1,13 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:gpspro/src/model/MaintenanceModel.dart';
 import 'package:gpspro/src/model/MaintenancePostModel.dart';
 import 'package:gpspro/theme/CustomColor.dart';
-
 import '../../traccar_gennissi.dart';
 
 class MaintenancePage extends StatefulWidget {
@@ -131,7 +129,6 @@ class _MaintenanceState extends State<MaintenancePage> {
         ),
         child: StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
-              Iterable list;
               return Container(
                 height: 400,
                 width: 300.0,

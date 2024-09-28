@@ -1,13 +1,6 @@
-import 'dart:convert';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gpspro/locale/lang/tr.dart';
-import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import '../Config.dart';
-import '../theme/CustomColor.dart';
-import '../widgets/AlertDialogCustom.dart';
 import '../widgets/CustomButton.dart';
 import 'CommonMethod.dart';
 import 'LineChart.dart';

@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -143,7 +142,7 @@ String convertCourse(double course) {
 
 }
 String capitalizeFirstLetter(String text) {
-  if (text == null || text.isEmpty) return text;
+  if (text.isEmpty) return text;
   return text[0].toUpperCase() + text.substring(1);
 }
 String DrivenCalculate(String firstUpdate,double lastUpdate) {

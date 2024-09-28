@@ -1611,7 +1611,6 @@ createCustomMarkerBitmap(controller.devices[pos.deviceId]!.name)
         ),
         child: StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
-              Iterable list;
               try {
                 Traccar.getSavedCommands(device.id.toString()).then((value) => {
                   if (value != null)
@@ -1843,14 +1842,6 @@ createCustomMarkerBitmap(controller.devices[pos.deviceId]!.name)
   }
 
   void getRangeNumber() {
-    if (devicesList == null) {
-      print("Markers list is null.");
-      _TimerSecond = 2; // Handle as needed for null case
-      setState(() {});
-      return;
-    }
-
-    // Ensure the list has at least one marker
     if (devicesList.isEmpty) {
       print("Markers list is empty.");
       _TimerSecond = 2; // Handle as needed for empty list

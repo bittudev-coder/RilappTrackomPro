@@ -14,7 +14,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../traccar_gennissi.dart';
 import '../src/model/MobileAppURL.dart';
-import '../theme/ConstColor.dart';
 import '../widgets/CustomText.dart';
 import 'WebViewScreen.dart';
 class LoginPage extends StatefulWidget {

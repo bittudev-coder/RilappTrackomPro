@@ -14,7 +14,6 @@ import '../widgets/CustomButton.dart';
 import '../widgets/CustomText.dart';
 import '../widgets/RatingPage.dart';
 import 'AppWebPage.dart';
-import 'WebViewScreen.dart';
 
 class Item {
   final String title;

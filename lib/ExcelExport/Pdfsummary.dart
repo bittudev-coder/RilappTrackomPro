@@ -10,7 +10,6 @@ import '../screens/CommonMethod.dart'; // Ensure this is correctly imported
 class PdfExporterSummary {
   Future<void> pdfsummary( List<Summary> _summaryList,String VehiclesNo,String From,String To) async {
     final pdf = pw.Document();
-    int i=0;
     pdf.addPage(
       pw.Page(
         build: (pw.Context context) {

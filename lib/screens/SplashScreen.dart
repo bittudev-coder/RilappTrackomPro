@@ -6,12 +6,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:get/get.dart';
 import 'package:gpspro/Config.dart';
-import 'package:gpspro/storage/dataController/DataController.dart';
 import 'package:gpspro/storage/user_repository.dart';
 import 'package:gpspro/theme/CustomColor.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../traccar_gennissi.dart';
@@ -52,10 +49,6 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   void checkPreference() async {
     prefs = await SharedPreferences.getInstance();
-    Map<Permission, PermissionStatus> statuses = await [
-      Permission.location,
-      Permission.notification,
-    ].request();
     prefs.setBool("ads", true);
 
     if("web"== prefs.getString("urltype")){
@@ -162,11 +155,9 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   }
 
   void checkLogin()  {
-    DataController? _dataController;
     Future.delayed(const Duration(milliseconds: 4000), () {
       Traccar.login(UserRepository.getEmail(), UserRepository.getPassword())
           .then((response) async {
-        _dataController = Get.put(DataController());
         if (response != null) {
           try{
             final http.Response response2 = await http.get(

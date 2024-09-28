@@ -757,7 +757,6 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
     if (device.lastUpdate != null) {
       fLastUpdate = formatTime(device.lastUpdate!);
     }
-    double subtext = 13;
     double title = 14;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 5),

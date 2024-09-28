@@ -1,12 +1,9 @@
-import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gpspro/src/model/NotificationModel.dart';
 import 'package:gpspro/theme/CustomColor.dart';
 import 'package:gpspro/traccar_gennissi.dart';
-import 'package:gpspro/util/string_extension.dart';
 
 class EnableNotificationPage extends StatefulWidget {
   @override

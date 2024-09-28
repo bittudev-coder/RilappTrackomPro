@@ -1,17 +1,10 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:gpspro/arguments/AboutPageArguments.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
-
 import '../storage/user_repository.dart';
-import '../traccar_gennissi.dart';
 import '../widgets/CustomButton.dart';
 
 const String kNavigationExamplePage = '''
@@ -50,7 +43,6 @@ class _WebViewScreenState extends State<WebViewScreen> {
   late String selectedUrl;
   late bool isLoading;
   late WebViewController _controller;
-  late Timer _timer;
 
   @override
   void initState() {

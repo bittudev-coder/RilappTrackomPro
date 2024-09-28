@@ -1,12 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart' as m;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:gpspro/arguments/DeviceArguments.dart';
 import 'package:gpspro/model/PinInformation.dart';
@@ -217,14 +215,12 @@ class _TrackDeviceState extends State<TrackDevicePage> {
     );
 
     currentlySelectedPin = sourcePinInfo;
-    if (_markers != null) {
-      if (isLoading) {
-        _showProgress(false);
-        isLoading = false;
-        setState(() {});
-      }
+    if (isLoading) {
+      _showProgress(false);
+      isLoading = false;
+      setState(() {});
     }
-  }
+    }
 
   void _onMapTypeButtonPressed() {
 
