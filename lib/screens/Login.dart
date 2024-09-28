@@ -109,7 +109,6 @@ class _LoginPageState extends State<LoginPage> {
     );
 
   }
-
   void checkPreference() async {
     Map<Permission, PermissionStatus> statuses = await [
       Permission.location,
