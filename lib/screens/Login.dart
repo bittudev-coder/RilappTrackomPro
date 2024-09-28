@@ -286,7 +286,7 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => WebViewScreen(title: "More Reports", url: URL.serverUrl),
+                                  builder: (context) => WebViewScreen(title: "Rilapp", url: URL.serverUrl),
                                 ),
                               );
                             // Navigator.pushReplacement(

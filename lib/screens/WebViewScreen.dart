@@ -128,6 +128,7 @@ Page resource error:
             _controller.goBack();
             return false;
           }else{
+            SystemNavigator.pop();
             return true;
           }
         },
