@@ -134,7 +134,16 @@ Page resource error:
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 40),
-            child: WebViewWidget(controller: _controller),
+            child: WillPopScope(
+                onWillPop: () async {
+                  if(await _controller.canGoBack()){
+                    _controller.goBack();
+                    return false;
+                  }else{
+                    return true;
+                  }
+                },
+                child: WebViewWidget(controller: _controller)),
           ),
           Positioned(
             top: 40, // Adjust the top position as needed
