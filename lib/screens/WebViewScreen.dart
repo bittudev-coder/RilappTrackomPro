@@ -138,7 +138,7 @@ Page resource error:
           ),
           Positioned(
             top: 40, // Adjust the top position as needed
-            right: 8, // Adjust the left position as needed
+            right:45, // Adjust the left position as needed
             child: favoriteButton(),
           ),
         ],
@@ -166,9 +166,7 @@ Page resource error:
           ],
         ),
         child: Center(
-          child: SizedBox(
-
-              child: CustomButton(onTap: logout, text: "Logout")),
+          child: CustomButton(onTap: logout, text: "Logout"),
         ),
       ),
     );
