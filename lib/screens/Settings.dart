@@ -52,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Future<void> getUser() async {
     prefs = await SharedPreferences.getInstance();
     String? userJson = prefs.getString("user");
-
+    print("Ftyagaggh${userJson}");
     if (userJson != null) {
       final parsed = json.decode(userJson);
       user = User.fromJson(parsed);

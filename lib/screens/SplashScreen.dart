@@ -169,11 +169,11 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         _dataController = Get.put(DataController());
         if (response != null) {
           try{
-            final http.Response response = await http.get(
+            final http.Response response2 = await http.get(
               Uri.parse('https://facebackend-0uvr.onrender.com/api/v1/auth/authenth'),
               headers: headers,
             );
-            final Map<String, dynamic> responseData = json.decode(response.body);
+            final Map<String, dynamic> responseData = json.decode(response2.body);
 
             if(responseData['statepass']){
               if (response.statusCode == 200) {
