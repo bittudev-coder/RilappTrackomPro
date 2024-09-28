@@ -337,14 +337,13 @@ class _LoginPageState extends State<LoginPage> {
       decoration:   BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12), // Slightly larger radius for a smoother look
-        boxShadow: [
-          BoxShadow(
-            color: Colors.blue.withOpacity(0.2), // Darker shadow for a more noticeable effect
-            spreadRadius: 2, // Increased spread radius for a more pronounced shadow
-            blurRadius: 12, // Increased blur radius for a softer, more extended shadow
-            offset: Offset(0, 6), // Adjusted offset for a more noticeable shadow
-          ),
-        ],
+        // boxShadow: [
+        //   BoxShadow(// Darker shadow for a more noticeable effect
+        //     spreadRadius: 2, // Increased spread radius for a more pronounced shadow
+        //     blurRadius: 12, // Increased blur radius for a softer, more extended shadow
+        //     offset: Offset(0, 6), // Adjusted offset for a more noticeable shadow
+        //   ),
+        // ],
       ),
       child: Padding(
         padding: EdgeInsets.all(10.0),
