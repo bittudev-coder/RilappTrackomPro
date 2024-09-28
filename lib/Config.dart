@@ -14,6 +14,6 @@ const WHATS_APP = "https://ip1.rilapp.com/vts";
 // const PHONE_NO = "";
 const EMAIL = "info@trackom.com";
 
-const SPLASH_SCREEN_TEXT1 = "Trackcom";
+const SPLASH_SCREEN_TEXT1 = "Trackom";
 const SPLASH_SCREEN_TEXT2 = "GPS Tracking App";
 const DEVELOPED_BY = "Developed by Trackom";
