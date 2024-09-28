@@ -56,8 +56,8 @@ class _LoginPageState extends State<LoginPage> {
     _emailFilter.addListener(_emailListen);
     _passwordFilter.addListener(_passwordListen);
 
-    Permission _permission2 = Permission.notification;
-    _permission2.request();
+    // Permission _permission2 = Permission.notification;
+    // _permission2.request();
 
     checkPreference();
     initFirebase();
@@ -111,6 +111,10 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void checkPreference() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.location,
+      Permission.notification,
+    ].request();
     prefs = await SharedPreferences.getInstance();
 
     if (prefs.getString("language") != null) {
