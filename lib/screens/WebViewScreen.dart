@@ -151,8 +151,8 @@ Page resource error:
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 40,
-        width: 100,// Increased height for better visual balance
+        height: 25,
+        width: 55,// Increased height for better visual balance
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15), // Rounded corners
@@ -166,7 +166,9 @@ Page resource error:
           ],
         ),
         child: Center(
-          child: CustomButton(onTap: logout, text: "Logout"),
+          child: SizedBox(
+
+              child: CustomButton(onTap: logout, text: "Logout")),
         ),
       ),
     );
