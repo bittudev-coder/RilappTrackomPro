@@ -59,7 +59,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     prefs.setBool("ads", true);
 
     if("web"== prefs.getString("urltype")){
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => WebViewScreen(title: "Rilapp", url:prefs.getString('url')!),

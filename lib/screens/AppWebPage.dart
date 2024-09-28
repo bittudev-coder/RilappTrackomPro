@@ -29,13 +29,13 @@ The navigation delegate is set to block navigation to the youtube website.
 </html>
 ''';
 
-class WebViewScreen extends StatefulWidget {
+class Appwebpage extends StatefulWidget {
   static const routeName = '/passArguments';
   final String title;
   final String url;
 
 
-  const WebViewScreen({
+  const Appwebpage({
     super.key,
     required this.title,
     required this.url,
@@ -45,7 +45,7 @@ class WebViewScreen extends StatefulWidget {
   _WebViewScreenState createState() => _WebViewScreenState();
 }
 
-class _WebViewScreenState extends State<WebViewScreen> {
+class _WebViewScreenState extends State<Appwebpage> {
   late String title;
   late String selectedUrl;
   late bool isLoading;
@@ -56,75 +56,75 @@ class _WebViewScreenState extends State<WebViewScreen> {
   void initState() {
     super.initState();
 
-        // #docregion platform_features
-        late final PlatformWebViewControllerCreationParams params;
-        if (WebViewPlatform.instance is WebKitWebViewPlatform) {
-          params = WebKitWebViewControllerCreationParams(
-            allowsInlineMediaPlayback: true,
-            mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
-          );
-        } else {
-          params = const PlatformWebViewControllerCreationParams();
-        }
+    // #docregion platform_features
+    late final PlatformWebViewControllerCreationParams params;
+    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
+      params = WebKitWebViewControllerCreationParams(
+        allowsInlineMediaPlayback: true,
+        mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
+      );
+    } else {
+      params = const PlatformWebViewControllerCreationParams();
+    }
 
-        final WebViewController controller =
-        WebViewController.fromPlatformCreationParams(params);
-        // #enddocregion platform_features
+    final WebViewController controller =
+    WebViewController.fromPlatformCreationParams(params);
+    // #enddocregion platform_features
 
-        controller
-          ..setJavaScriptMode(JavaScriptMode.unrestricted)
-          ..setNavigationDelegate(
-            NavigationDelegate(
-              onProgress: (int progress) {
-                debugPrint('WebView is loading (progress : $progress%)');
-              },
-              onPageStarted: (String url) {
-                debugPrint('Page started loading: $url');
-              },
-              onPageFinished: (String url) {
-                debugPrint('Page finished loading: $url');
-              },
-              onWebResourceError: (WebResourceError error) {
-                debugPrint('''
+    controller
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onProgress: (int progress) {
+            debugPrint('WebView is loading (progress : $progress%)');
+          },
+          onPageStarted: (String url) {
+            debugPrint('Page started loading: $url');
+          },
+          onPageFinished: (String url) {
+            debugPrint('Page finished loading: $url');
+          },
+          onWebResourceError: (WebResourceError error) {
+            debugPrint('''
 Page resource error:
   code: ${error.errorCode}
   description: ${error.description}
   errorType: ${error.errorType}
   isForMainFrame: ${error.isForMainFrame}
           ''');
-              },
-              onNavigationRequest: (NavigationRequest request) {
-                if (request.url.startsWith('https://www.youtube.com/')) {
-                  debugPrint('blocking navigation to ${request.url}');
-                  return NavigationDecision.prevent;
-                }
-                debugPrint('allowing navigation to ${request.url}');
-                return NavigationDecision.navigate;
-              },
-            ),
-          )
-          ..addJavaScriptChannel(
-            'Toaster',
-            onMessageReceived: (JavaScriptMessage message) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(message.message)),
-              );
-            },
-          )
-          ..loadRequest(Uri.parse(widget.url));
+          },
+          onNavigationRequest: (NavigationRequest request) {
+            if (request.url.startsWith('https://www.youtube.com/')) {
+              debugPrint('blocking navigation to ${request.url}');
+              return NavigationDecision.prevent;
+            }
+            debugPrint('allowing navigation to ${request.url}');
+            return NavigationDecision.navigate;
+          },
+        ),
+      )
+      ..addJavaScriptChannel(
+        'Toaster',
+        onMessageReceived: (JavaScriptMessage message) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(message.message)),
+          );
+        },
+      )
+      ..loadRequest(Uri.parse(widget.url));
 
-        // #docregion platform_features
-        if (controller.platform is AndroidWebViewController) {
-          AndroidWebViewController.enableDebugging(true);
-          (controller.platform as AndroidWebViewController)
-              .setMediaPlaybackRequiresUserGesture(false);
-        }
-        // #enddocregion platform_features
+    // #docregion platform_features
+    if (controller.platform is AndroidWebViewController) {
+      AndroidWebViewController.enableDebugging(true);
+      (controller.platform as AndroidWebViewController)
+          .setMediaPlaybackRequiresUserGesture(false);
+    }
+    // #enddocregion platform_features
 
-        _controller = controller;
-        setState(() {
+    _controller = controller;
+    setState(() {
 
-        });
+    });
   }
 
   @override
@@ -149,17 +149,16 @@ Page resource error:
                       _controller.goBack();
                       return false;
                     }else{
-                      SystemNavigator.pop();
                       return true;
                     }
                   },
                   child: WebViewWidget(controller: _controller)),
             ),
-            Positioned(
-              top: 40, // Adjust the top position as needed
-              right:45, // Adjust the left position as needed
-              child: favoriteButton(),
-            ),
+            // Positioned(
+            //   top: 40, // Adjust the top position as needed
+            //   right:45, // Adjust the left position as needed
+            //   child: favoriteButton(),
+            // ),
           ],
         ),
       ),
@@ -193,7 +192,7 @@ Page resource error:
   }
   logout(){
     Navigator.pushReplacementNamed(context, '/login');
-      UserRepository.doLogout();
-      Phoenix.rebirth(context);
+    UserRepository.doLogout();
+    Phoenix.rebirth(context);
   }
 }

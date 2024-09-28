@@ -175,6 +175,7 @@ class Assets {
   static const String rilappTrackomProImagesLogo = 'images/logo.png';
   static const String screensAbout = 'lib/screens/About.dart';
   static const String screensAddDevice = 'lib/screens/AddDevice.dart';
+  static const String screensAppWebPage = 'lib/screens/AppWebPage.dart';
   static const String screensCommonMethod = 'lib/screens/CommonMethod.dart';
   static const String screensDashboard = 'lib/screens/Dashboard.dart';
   static const String screensDefaultGraphLine = 'lib/screens/defaultGraphLine.dart';

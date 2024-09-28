@@ -13,6 +13,7 @@ import '../widgets/ChangePassword.dart';
 import '../widgets/CustomButton.dart';
 import '../widgets/CustomText.dart';
 import '../widgets/RatingPage.dart';
+import 'AppWebPage.dart';
 import 'WebViewScreen.dart';
 
 class Item {
@@ -160,7 +161,7 @@ class _SettingsPageState extends State<SettingsPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => WebViewScreen(title: "More Reports", url: '${MORE_REPORT}username=${UserRepository.getEmail()}&password=${UserRepository.getPassword()}'),
+            builder: (context) => Appwebpage(title: "More Reports", url: '${MORE_REPORT}username=${UserRepository.getEmail()}&password=${UserRepository.getPassword()}'),
           ),
         );
         break;

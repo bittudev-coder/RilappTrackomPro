@@ -284,12 +284,18 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.pop(context);
                             });
                             if(URL.serverType== "web"){
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => WebViewScreen(title: URL.serverName, url: URL.serverUrl ),
-                              ),
-                            );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => WebViewScreen(title: "More Reports", url: URL.serverUrl),
+                                ),
+                              );
+                            // Navigator.pushReplacement(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => WebViewScreen(title: URL.serverName, url: URL.serverUrl ),
+                            //   ),
+                            // );
                             }
                           },
 
