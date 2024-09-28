@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'package:gpspro/main.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Config.dart';
 import '../../storage/user_repository.dart';

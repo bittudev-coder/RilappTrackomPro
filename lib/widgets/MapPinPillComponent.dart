@@ -398,44 +398,6 @@ class MapPinPillComponentState extends State<MapPinPillComponent> {
     }
   }
 
-  Future<void> _showEngineOnOFF() async {
-    Widget cancelButton = TextButton(
-      child: Text(('cancel').tr),
-      onPressed: () {
-        Navigator.pop(context);
-      },
-    );
-
-    Widget onButton = TextButton(
-      child: Text(('on').tr),
-      onPressed: () {
-        sendCommand('engineResume');
-      },
-    );
-    Widget offButton = TextButton(
-      child: Text(('off').tr),
-      onPressed: () {
-        sendCommand('engineStop');
-      },
-    );
-
-    AlertDialog alert = AlertDialog(
-      title: Text(('fuelCutOff').tr),
-      content: Text(('areYouSure').tr),
-      actions: [
-        cancelButton,
-        onButton,
-        offButton,
-      ],
-    );
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  }
 
   void sendCommand(String commandTxt) {
     Command command = Command();

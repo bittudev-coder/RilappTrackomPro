@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart' show BuildContext, Color, FontStyle, FontWeight, StatelessWidget, Text, TextStyle, VoidCallback, Widget;
 class CustomText extends StatelessWidget{
   final String TxtName;

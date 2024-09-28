@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
-import 'package:gpspro/screens/About.dart';
 import 'package:gpspro/screens/Dashboard.dart';
 import 'package:gpspro/screens/Devices.dart';
 import 'package:gpspro/screens/MapHome.dart';
 import 'package:gpspro/screens/Settings.dart';
 import 'package:gpspro/theme/CustomColor.dart';
-
-import '../hello.dart';
-import '../traccar_gennissi.dart';
 
 class HomePage extends StatefulWidget {
   @override

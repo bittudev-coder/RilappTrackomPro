@@ -1,5 +1,5 @@
 class CommandModel extends Object {
-  dynamic? deviceId;
+  dynamic deviceId;
   String? type;
   String? description;
   Map<String, dynamic>? attributes;

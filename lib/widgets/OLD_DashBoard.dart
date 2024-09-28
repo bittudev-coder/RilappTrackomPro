@@ -6,7 +6,6 @@ import 'package:gpspro/arguments/ReportEventArguments.dart';
 import 'package:gpspro/screens/CommonMethod.dart';
 import 'package:gpspro/storage/dataController/DataController.dart';
 import 'package:gpspro/theme/CustomColor.dart';
-import 'package:jiffy/jiffy.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../traccar_gennissi.dart';

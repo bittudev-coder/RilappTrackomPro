@@ -133,7 +133,6 @@ class Assets {
   static const String libConfig = 'lib/Config.dart';
   static const String libConstants = 'lib/Constants.dart';
   static const String libFirebaseOptions = 'lib/firebase_options.dart';
-  static const String libHello = 'lib/hello.dart';
   static const String libMain = 'lib/main.dart';
   static const String libOldDevice = 'lib/old_device.dart';
   static const String libRoutes = 'lib/routes.dart';

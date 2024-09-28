@@ -7,10 +7,8 @@ import 'package:gpspro/src/model/NotificationModel.dart';
 import 'package:gpspro/storage/user_repository.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'model/Device.dart';
-import 'model/DrivenTodayModel.dart';
 import 'model/EditDevices.dart';
 import 'model/Event.dart';
 import 'model/GeofenceModel.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gpspro/Config.dart';
-import 'package:gpspro/arguments/AboutPageArguments.dart';
 import 'package:gpspro/screens/WebViewScreen.dart';
 import 'package:gpspro/theme/CustomColor.dart';
 import 'package:gpspro/traccar_gennissi.dart';
